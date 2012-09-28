@@ -11,28 +11,25 @@
       var rekursion = 2;
       var laenge = 105;
 
-      function Move2(laenge, x) {
+      function fractalMove(laenge, x) {
         if (x == 0) {
           turtle.Move(laenge);
         } else {
-          Move2(laenge/3, x - 1);
+          fractalMove(laenge/3, x - 1);
           turtle.Turn(-winkel);
-          Move2(laenge/3, x - 1);
+          fractalMove(laenge/3, x - 1);
           turtle.Turn(winkel * 2);
-          Move2(laenge/3, x - 1);
+          fractalMove(laenge/3, x - 1);
           turtle.Turn(-winkel);
-          Move2(laenge/3, x - 1);
+          fractalMove(laenge/3, x - 1);
         }
       }
-      with (TurtleGraphics) {
-        SetDefaults({canvasID: 'TGspace', unit : 30});
-        var turtle = new Turtle();
-        with (turtle) {
-          for (var i = 0; i < n; i++) {
-            Move2(laenge, rekursion); 
-            Turn(360 / n); 
-          }
-        }
+
+      TurtleGraphics.SetDefaults({canvasID: 'TGspace', unit : 30});
+      var turtle = new TurtleGraphics.Turtle();
+      for (var i = 0; i < n; i++) {
+        fractalMove(laenge, rekursion); 
+        turtle.Turn(360 / n); 
       }
     </script>
   </body>
