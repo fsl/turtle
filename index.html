@@ -4,16 +4,32 @@
     <script type="text/javascript" src="turtle-graphics.js"></script>
   </head>
   <body>
-    <canvas id="TGspace" width="480" height="300"></canvas>
-   <script>
-   with ( TurtleGraphics ) {
-     SetDefaults({ canvasID: 'TGspace', unit : 30 });
-     var turtle = new Turtle();
-     with ( turtle ) {
-       DrawTurtle('blue');
-       Move(1); Turn(90); Move(1);
-       DrawTurtle('red');
-     }
-   }    </script>
+    <canvas id="TGspace" width="800" height="600"></canvas>
+    <script>
+      function Move2(laenge, x) {
+        if (x == 0) {
+          turtle.Move(laenge);
+        } else {
+          Move2(laenge/3, x-1);
+          turtle.Turn(-60);
+          Move2(laenge/3, x-1);
+          turtle.Turn(120);
+          Move2(laenge/3, x-1);
+          turtle.Turn(-60);
+          Move2(laenge/3, x-1);
+        }
+      }
+      with ( TurtleGraphics ) {
+        SetDefaults({ canvasID: 'TGspace', unit : 30 });
+        var turtle = new Turtle();
+        with ( turtle ) {
+          var n = 3;
+          for (var i=0; i<n; i++) {
+            Move2(10, 5); 
+            Turn(360/n); 
+          }
+        }
+      }
+    </script>
   </body>
 </html>
