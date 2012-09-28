@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script type="text/javascript" src="turtle-graphics.js"></script>
+  </head>
+  <body>
+    <canvas id="TGspace" width="480" height="300"></canvas>
+   <script>
+   with ( TurtleGraphics ) {
+     SetDefaults({ canvasID: 'TGspace', unit : 30 });
+     var turtle = new Turtle();
+     with ( turtle ) {
+       DrawTurtle('blue');
+       Move(1); Turn(90); Move(1);
+       DrawTurtle('red');
+     }
+   }    </script>
+  </body>
+</html>
